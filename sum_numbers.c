@@ -6,12 +6,14 @@
 
 void print_array(const int *arr, const int size) {
     int i;
+    printf("The array contents are : ");
     for (i = 0; i < size; i++) {
         printf("%d", arr[i]);
         if (i < size - 1) {
             printf(" ");
         }
     }
+    printf("\n");
 }
 
 int sum_between(const int from_number, const int to_number) {
@@ -31,6 +33,8 @@ void fill_sum_array(int *arr, const int from_number, const int to_number, const 
 }
 
 int array_sum_between(const int from_number, const int to_number) {
+    printf("The numbers received were %d and %d.\n", from_number, to_number);
+
     const int number_of_numbers_to_sum = to_number - from_number + 1;
     const int number_of_array_elements = number_of_numbers_to_sum + 3;
 
@@ -41,6 +45,7 @@ int array_sum_between(const int from_number, const int to_number) {
     }
 
     const int sum = sum_between(from_number, to_number);
+    printf("The sum between them is %d.\n", sum);
     fill_sum_array(arr, from_number, to_number, number_of_array_elements, sum);
     print_array(arr, number_of_array_elements);
 
@@ -53,6 +58,17 @@ int main(void) {
     printf("Enter a start and end number: ");
     scanf("%d %d", &from_number, &to_number);
 
-    array_sum_between(from_number, to_number);
+    printf("Calling function sum_between with numbers %d and %d.\n", from_number, to_number);
+    const int sum_between_func_result = sum_between(from_number, to_number);
+    printf("The sum received from function sum_between is %d.\n", sum_between_func_result);
+
+    printf("Calling macro SUM_BETWEEN with numbers %d and %d.\n", from_number, to_number);
+    const int sum_between_macro_result = SUM_BETWEEN(from_number, to_number);
+    printf("The sum received from macro SUM_BETWEEN is %d.\n", sum_between_macro_result);
+
+    printf("Calling function array_sum_between with numbers %d and %d.\n", from_number, to_number);
+    const int array_sum_between_func_result = array_sum_between(from_number, to_number);
+    printf("The sum received from function array_sum_between is %d.\n", array_sum_between_func_result);
+
     return 0;
 }
