@@ -49,6 +49,10 @@ int array_sum_between(const int from_number, const int to_number) {
 }
 
 int main(void) {
-    printf("%d\n", array_sum_between(-19, 112));
+    int from_number, to_number;
+    printf("Enter a start and end number: ");
+    scanf("%d %d", &from_number, &to_number);
+
+    array_sum_between(from_number, to_number);
     return 0;
 }
