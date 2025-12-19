@@ -18,7 +18,7 @@ int sum_between(const int from_number, const int to_number) {
     return (from_number + to_number) * (to_number - from_number + 1) / 2;
 }
 
-void fill_sum_array(int *arr, const int from_number, const int to_number, const int total_elements) {
+void fill_sum_array(int *arr, const int from_number, const int to_number, const int total_elements, const int sum) {
     arr[0] = from_number;
     arr[1] = to_number;
 
@@ -27,7 +27,7 @@ void fill_sum_array(int *arr, const int from_number, const int to_number, const 
         arr[i] = from_number + (i - 2);
     }
 
-    arr[total_elements - 1] = sum_between(from_number, to_number);
+    arr[total_elements - 1] = sum;
 }
 
 int array_sum_between(const int from_number, const int to_number) {
@@ -40,11 +40,12 @@ int array_sum_between(const int from_number, const int to_number) {
         exit(1);
     }
 
-    fill_sum_array(arr, from_number, to_number, number_of_array_elements);
+    const int sum = sum_between(from_number, to_number);
+    fill_sum_array(arr, from_number, to_number, number_of_array_elements, sum);
     print_array(arr, number_of_array_elements);
 
     free(arr);
-    return 0;
+    return sum;
 }
 
 int main(void) {
