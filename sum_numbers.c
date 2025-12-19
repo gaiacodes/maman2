@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define SUM_BETWEEN(from, to) \
-(((long long)(from) + (to)) * ((to) - (from) + 1) / 2)
+(((from) + (to)) * ((to) - (from) + 1) / 2)
 
 
 void print_array(const int *arr, const int size) {
@@ -14,8 +14,8 @@ void print_array(const int *arr, const int size) {
     }
 }
 
-long long sum_between(const int from_number, const int to_number) {
-    return ((long long) from_number + to_number) * (to_number - from_number + 1) / 2;
+int sum_between(const int from_number, const int to_number) {
+    return (from_number + to_number) * (to_number - from_number + 1) / 2;
 }
 
 void fill_sum_array(int *arr, int from, int to, int total_elements) {
@@ -48,6 +48,6 @@ int array_sum_between(const int from_number, const int to_number) {
 }
 
 int main(void) {
-    printf("%lld\n", array_sum_between(-19, 112));
+    printf("%d\n", array_sum_between(-19, 112));
     return 0;
 }
