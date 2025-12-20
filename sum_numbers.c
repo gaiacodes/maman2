@@ -1,16 +1,33 @@
+/* This program receives to whole numbers separated by a space.
+* It assumes the input is valid and that the second number is bigger than the first.
+ *
+ * Then it does the following:
+ * 1) Calls the function sum_between that calculates the sum of all integers from the first to the second number.
+ * 2) Calls the macro SUM_BETWEEN that calculates the sum of all integers from the first to the second number.
+ * 3) Calls the function array_sum_between which prints an array that contains the two integers,
+ * all integers between them and the sum of these integers.
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
+/* receives two integers and returns the sum of all integers between them.
+ * calculate the sum of the numbers between the two numbers using Gauss Sum.*/
 #define SUM_BETWEEN(from, to) \
 (((from) + (to)) * ((to) - (from) + 1) / 2)
 
+/* receives a pointer to an array of integers and the array's size and prints it*/
 void print_array(const int *arr, int size);
 
+/* receives two integers and returns the sum of all integers between them.*/
 int sum_between(int from_number, int to_number);
 
+/* receives an array, two integers, the sum of all integers between them and the size of the array.
+ * prints an array that contains the two integers, all integers between them and their sum.
+ * returns the sum.*/
 void fill_sum_array(int *arr, int from_number, int to_number, int total_elements, int sum);
 
+/* receives two integers, prints an array that contains the two integers, all integers between them and the sum of these integers.*/
 int array_sum_between(int from_number, int to_number);
-
 
 int main(void) {
     int from_number, to_number;
@@ -20,7 +37,7 @@ int main(void) {
 
     printf("Enter a start and end number: ");
     scanf("%d %d", &from_number, &to_number);
-    
+
     printf("Calling function sum_between with numbers %d and %d.\n", from_number, to_number);
     sum_between_func_result = sum_between(from_number, to_number);
     printf("The sum received from function sum_between is %d.\n", sum_between_func_result);
@@ -49,6 +66,7 @@ void print_array(const int *arr, const int size) {
 }
 
 int sum_between(const int from_number, const int to_number) {
+    /* calculate the sum of the numbers between the two numbers using Gauss Sum*/
     return (from_number + to_number) * (to_number - from_number + 1) / 2;
 }
 
@@ -76,6 +94,7 @@ int array_sum_between(const int from_number, const int to_number) {
     number_of_array_elements = number_of_numbers_to_sum + 3;
 
     arr = malloc(number_of_array_elements * sizeof(int));
+    /* exit the program if the memory allocation failed.*/
     if (arr == NULL) {
         fprintf(stderr, "Failed to allocate memory.\n");
         exit(1);
