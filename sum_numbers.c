@@ -3,6 +3,34 @@
 #define SUM_BETWEEN(from, to) \
 (((from) + (to)) * ((to) - (from) + 1) / 2)
 
+void print_array(const int *arr, int size);
+
+int sum_between(int from_number, int to_number);
+
+void fill_sum_array(int *arr, int from_number, int to_number, int total_elements, int sum);
+
+int array_sum_between(int from_number, int to_number);
+
+
+int main(void) {
+    int from_number, to_number;
+    printf("Enter a start and end number: ");
+    scanf("%d %d", &from_number, &to_number);
+
+    printf("Calling function sum_between with numbers %d and %d.\n", from_number, to_number);
+    const int sum_between_func_result = sum_between(from_number, to_number);
+    printf("The sum received from function sum_between is %d.\n", sum_between_func_result);
+
+    printf("Calling macro SUM_BETWEEN with numbers %d and %d.\n", from_number, to_number);
+    const int sum_between_macro_result = SUM_BETWEEN(from_number, to_number);
+    printf("The sum received from macro SUM_BETWEEN is %d.\n", sum_between_macro_result);
+
+    printf("Calling function array_sum_between with numbers %d and %d.\n", from_number, to_number);
+    const int array_sum_between_func_result = array_sum_between(from_number, to_number);
+    printf("The sum received from function array_sum_between is %d.\n", array_sum_between_func_result);
+
+    return 0;
+}
 
 void print_array(const int *arr, const int size) {
     int i;
@@ -51,24 +79,4 @@ int array_sum_between(const int from_number, const int to_number) {
 
     free(arr);
     return sum;
-}
-
-int main(void) {
-    int from_number, to_number;
-    printf("Enter a start and end number: ");
-    scanf("%d %d", &from_number, &to_number);
-
-    printf("Calling function sum_between with numbers %d and %d.\n", from_number, to_number);
-    const int sum_between_func_result = sum_between(from_number, to_number);
-    printf("The sum received from function sum_between is %d.\n", sum_between_func_result);
-
-    printf("Calling macro SUM_BETWEEN with numbers %d and %d.\n", from_number, to_number);
-    const int sum_between_macro_result = SUM_BETWEEN(from_number, to_number);
-    printf("The sum received from macro SUM_BETWEEN is %d.\n", sum_between_macro_result);
-
-    printf("Calling function array_sum_between with numbers %d and %d.\n", from_number, to_number);
-    const int array_sum_between_func_result = array_sum_between(from_number, to_number);
-    printf("The sum received from function array_sum_between is %d.\n", array_sum_between_func_result);
-
-    return 0;
 }
