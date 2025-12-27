@@ -1,0 +1,9 @@
+Enter a start and end number: Calling function sum_between with numbers 2 and 10.
+The sum received from function sum_between is 54.
+Calling macro SUM_BETWEEN with numbers 2 and 10.
+The sum received from macro SUM_BETWEEN is 54.
+Calling function array_sum_between with numbers 2 and 10.
+The numbers received were 2 and 10.
+The sum between them is 54.
+The array contents are : 2 10 2 3 4 5 6 7 8 9 10 54
+The sum received from function array_sum_between is 54.

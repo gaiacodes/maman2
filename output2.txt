@@ -1,0 +1,9 @@
+Enter a start and end number: Calling function sum_between with numbers -50 and 3.
+The sum received from function sum_between is -1269.
+Calling macro SUM_BETWEEN with numbers -50 and 3.
+The sum received from macro SUM_BETWEEN is -1269.
+Calling function array_sum_between with numbers -50 and 3.
+The numbers received were -50 and 3.
+The sum between them is -1269.
+The array contents are : -50 3 -50 -49 -48 -47 -46 -45 -44 -43 -42 -41 -40 -39 -38 -37 -36 -35 -34 -33 -32 -31 -30 -29 -28 -27 -26 -25 -24 -23 -22 -21 -20 -19 -18 -17 -16 -15 -14 -13 -12 -11 -10 -9 -8 -7 -6 -5 -4 -3 -2 -1 0 1 2 3 -1269
+The sum received from function array_sum_between is -1269.
