@@ -15,6 +15,9 @@
 #define SUM_BETWEEN(from, to) \
 (((from) + (to)) * ((to) - (from) + 1) / 2)
 
+/* receives the start and end number from the user*/
+void get_user_input(int *from_number, int *to_number);
+
 /* receives a pointer to an array of integers and the array's size and prints it*/
 void print_array(const int *arr, int size);
 
@@ -35,8 +38,7 @@ int main(void) {
     int sum_between_macro_result;
     int array_sum_between_func_result;
 
-    printf("Enter a start and end number: ");
-    scanf("%d %d", &from_number, &to_number);
+    get_user_input(&from_number, &to_number);
 
     printf("Calling function sum_between with numbers %d and %d.\n", from_number, to_number);
     sum_between_func_result = sum_between(from_number, to_number);
@@ -51,6 +53,11 @@ int main(void) {
     printf("The sum received from function array_sum_between is %d.\n", array_sum_between_func_result);
 
     return 0;
+}
+
+void get_user_input(int *from_number, int *to_number) {
+    printf("Enter a start and end number: ");
+    scanf("%d %d", from_number, to_number);
 }
 
 void print_array(const int *arr, const int size) {
